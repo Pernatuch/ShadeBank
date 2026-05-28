@@ -1,0 +1,153 @@
+/* ================================================================
+   auth.css — Страницы входа и регистрации
+   ================================================================ */
+
+/* ── Карточка-контейнер ──────────────────────────────────────── */
+.auth-card {
+    background: var(--surface);
+    border: 16px solid var(--purple);
+    border-radius: var(--r-xl);
+    padding: 38px 48px;
+    width: 440px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    box-shadow: var(--shadow-lg);
+}
+.auth-card--wide {
+    width: 700px;
+    align-items: stretch;
+    padding: 32px 44px;
+    gap: 14px;
+}
+
+.auth-title {
+    font-size: var(--fs-xl);
+    font-weight: 600;
+    color: var(--text);
+    text-align: center;
+    letter-spacing: -.3px;
+    margin-bottom: 4px;
+}
+
+/* ── Поля ввода ──────────────────────────────────────────────── */
+.auth-input {
+    width: 100%;
+    padding: 12px 20px;
+    border: 1.5px solid var(--border-strong);
+    border-radius: var(--r-pill);
+    outline: none;
+    font-family: var(--font-body);
+    font-size: var(--fs-base);
+    text-align: center;
+    letter-spacing: .6px;
+    color: var(--text);
+    background: var(--surface);
+    transition: border-color .18s, box-shadow .18s;
+    margin: 0;
+}
+.auth-input:focus {
+    border-color: var(--purple-mid);
+    box-shadow: 0 0 0 3px rgba(124,58,237,.12);
+}
+.auth-input::placeholder { color: var(--text-muted); letter-spacing: .3px; }
+
+/* Вариант для формы регистрации */
+.auth-input--reg {
+    text-align: left;
+    letter-spacing: 0;
+    padding: 10px 16px;
+    border-radius: var(--r-md);
+}
+
+/* ── Кнопки ──────────────────────────────────────────────────── */
+.auth-btn-primary {
+    background: var(--purple);
+    color: white;
+    border: none;
+    border-radius: var(--r-pill);
+    padding: 12px 52px;
+    font-family: var(--font-body);
+    font-size: var(--fs-md);
+    font-weight: 600;
+    letter-spacing: .4px;
+    cursor: pointer;
+    width: auto; margin: 4px 0 0;
+    transition: background .18s, box-shadow .18s, transform .10s;
+}
+.auth-btn-primary:hover  {
+    background: var(--purple-mid);
+    box-shadow: 0 4px 16px rgba(91,33,182,.35);
+}
+.auth-btn-primary:active { transform: scale(0.98); }
+
+.auth-btn-secondary {
+    background: var(--gray-bg);
+    color: var(--text-secondary);
+    border: 1.5px solid var(--border);
+    border-radius: var(--r-pill);
+    padding: 11px 32px;
+    font-family: var(--font-body);
+    font-size: var(--fs-base);
+    font-weight: 500;
+    cursor: pointer;
+    width: auto; margin: 0;
+    transition: background .18s, border-color .18s;
+}
+.auth-btn-secondary:hover {
+    background: var(--border);
+    border-color: var(--border-strong);
+}
+
+.auth-link {
+    color: var(--purple-mid);
+    font-size: var(--fs-base);
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+}
+.auth-link:hover { text-decoration: underline; }
+
+/* ── Форма регистрации ───────────────────────────────────────── */
+.reg-form   { display: flex; flex-direction: column; gap: 8px; width: 100%; }
+.reg-row    { display: flex; align-items: center; gap: 20px; }
+.reg-label  {
+    width: 200px; flex-shrink: 0;
+    font-size: var(--fs-base);
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+.req { color: var(--red); margin-right: 3px; font-weight: 700; }
+.reg-form .auth-input--reg { flex: 1; }
+.reg-actions { display: flex; justify-content: space-between; align-items: center; margin-top: 6px; }
+
+/* ── Сообщения статуса ───────────────────────────────────────── */
+.error {
+    color: var(--red);
+    padding: 10px 16px;
+    background: var(--red-surface);
+    border: 1px solid #FECACA;
+    border-radius: var(--r-md);
+    text-align: center;
+    font-size: var(--fs-base);
+    font-weight: 500;
+    width: 100%;
+}
+.success {
+    color: var(--green);
+    padding: 10px 16px;
+    background: var(--green-surface);
+    border: 1px solid #A7F3D0;
+    border-radius: var(--r-md);
+    text-align: center;
+    font-size: var(--fs-base);
+    font-weight: 500;
+    width: 100%;
+}
+.loading-text {
+    color: var(--text-muted);
+    font-size: var(--fs-base);
+    text-align: center;
+    padding: 20px 0;
+}

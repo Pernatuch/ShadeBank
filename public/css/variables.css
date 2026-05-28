@@ -1,0 +1,90 @@
+/* ================================================================
+   variables.css — Шрифты, токены, сброс стилей, body
+   ================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:wght@400;500&display=swap');
+
+/* ── Токены ──────────────────────────────────────────────────── */
+:root {
+    /* Основная палитра */
+    --purple:        #5B21B6;
+    --purple-mid:    #7C3AED;
+    --purple-light:  #EDE9FE;
+    --purple-dim:    #3B0E9E;
+    --purple-surface:#F5F3FF;
+
+    --green:         #059669;
+    --green-dark:    #047857;
+    --green-surface: #ECFDF5;
+
+    --red:           #DC2626;
+    --red-surface:   #FEF2F2;
+
+    --gray-bg:       #F1F0F4;
+    --surface:       #FFFFFF;
+    --surface-raised:#FAFAFA;
+
+    --border:        #E4E2EA;
+    --border-strong: #C4C2D0;
+
+    --text:          #18161F;
+    --text-secondary:#52506A;
+    --text-muted:    #9290A8;
+
+    /* Градиенты */
+    --grad-bar:  linear-gradient(100deg, #4C1D95 0%, #6D28D9 55%, #7C3AED 100%);
+    --grad-card: linear-gradient(135deg, #1E1B4B 0%, #3730A3 60%, #4338CA 100%);
+    --grad-nav:  linear-gradient(135deg, #6D28D9 0%, #9333EA 100%);
+
+    /* Шрифты */
+    --font-body: 'DM Sans',  system-ui, sans-serif;
+    --font-mono: 'DM Mono',  'Courier New', monospace;
+
+    /* Размеры шрифтов */
+    --fs-xs:   12px;
+    --fs-sm:   13px;
+    --fs-base: 14px;
+    --fs-md:   15px;
+    --fs-lg:   17px;
+    --fs-xl:   20px;
+    --fs-2xl:  24px;
+
+    /* Высота шапки */
+    --bar-h: 66px;
+
+    /* Радиусы */
+    --r-sm:   6px;
+    --r-md:   10px;
+    --r-lg:   16px;
+    --r-xl:   22px;
+    --r-pill: 999px;
+
+    /* Тени */
+    --shadow-sm: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
+    --shadow-md: 0 4px 16px rgba(91,33,182,.10), 0 1px 4px rgba(0,0,0,.06);
+    --shadow-lg: 0 8px 30px rgba(91,33,182,.14), 0 2px 8px rgba(0,0,0,.06);
+}
+
+/* ── Сброс ───────────────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ── Тело ────────────────────────────────────────────────────── */
+body {
+    font-family: var(--font-body);
+    font-size: var(--fs-base);
+    line-height: 1.55;
+    background: var(--gray-bg);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+
+#root {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 14px;
+}

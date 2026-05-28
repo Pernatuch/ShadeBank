@@ -1,0 +1,118 @@
+/* ================================================================
+   admin.css — Таблица пользователей, запросы, блокировка, статусы
+   ================================================================ */
+
+/* ── Таблица пользователей ───────────────────────────────────── */
+.users-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    font-size: var(--fs-base);
+}
+.users-table th,
+.users-table td {
+    padding: 11px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+.users-table tbody tr:last-child td { border-bottom: none; }
+.users-table th {
+    background: var(--surface-raised);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: var(--fs-xs);
+    letter-spacing: .8px;
+    color: var(--text-muted);
+    border-bottom: 1.5px solid var(--border);
+}
+.users-table tbody tr { transition: background .15s; }
+.users-table tbody tr:hover { background: var(--purple-surface); }
+
+/* Кнопка «Профиль» */
+.view-btn {
+    background: transparent;
+    color: var(--purple-mid);
+    border: 1.5px solid var(--purple-mid);
+    border-radius: var(--r-md);
+    padding: 5px 14px;
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    cursor: pointer;
+    margin: 0; width: auto;
+    transition: background .18s, color .18s;
+}
+.view-btn:hover {
+    background: var(--purple);
+    color: white;
+    border-color: var(--purple);
+}
+
+/* ── Баннер запросов ─────────────────────────────────────────── */
+.request-banner {
+    display: flex; align-items: center;
+    justify-content: space-between;
+    background: var(--green-surface);
+    border: 1px solid #A7F3D0;
+    border-radius: var(--r-md);
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    font-size: var(--fs-base);
+    color: var(--green-dark);
+}
+
+/* ── Кнопки одобрения / отклонения ──────────────────────────── */
+.approve-btn {
+    background: var(--green); color: white; border: none;
+    border-radius: var(--r-md); padding: 6px 14px;
+    font-family: var(--font-body);
+    font-size: var(--fs-sm); font-weight: 600; cursor: pointer;
+    margin: 0; width: auto; transition: background .18s;
+}
+.approve-btn:hover    { background: var(--green-dark); }
+.approve-btn:disabled { background: var(--text-muted); cursor: not-allowed; }
+
+.reject-btn {
+    background: var(--red); color: white; border: none;
+    border-radius: var(--r-md); padding: 6px 14px;
+    font-family: var(--font-body);
+    font-size: var(--fs-sm); font-weight: 600; cursor: pointer;
+    margin: 0; width: auto; transition: background .18s;
+}
+.reject-btn:hover { background: #B91C1C; }
+
+/* ── Бейджи статуса пользователя ─────────────────────────────── */
+.status-badge {
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: var(--r-pill);
+    letter-spacing: .3px;
+    text-transform: uppercase;
+}
+.status-active  { background: var(--green-surface); color: var(--green-dark); border: 1px solid #A7F3D0; }
+.status-blocked { background: var(--red-surface);   color: var(--red);        border: 1px solid #FECACA; }
+
+/* ── Кнопки блокировки / разблокировки ──────────────────────── */
+.block-btn {
+    background: var(--red); color: white; border: none;
+    border-radius: var(--r-md); padding: 5px 14px;
+    font-family: var(--font-body);
+    font-size: var(--fs-sm); font-weight: 600; cursor: pointer;
+    margin: 0; width: auto; transition: background .18s;
+}
+.block-btn:hover    { background: #B91C1C; }
+.block-btn:disabled { background: var(--text-muted); cursor: not-allowed; }
+
+.unblock-btn {
+    background: var(--green); color: white; border: none;
+    border-radius: var(--r-md); padding: 5px 14px;
+    font-family: var(--font-body);
+    font-size: var(--fs-sm); font-weight: 600; cursor: pointer;
+    margin: 0; width: auto; transition: background .18s;
+}
+.unblock-btn:hover    { background: var(--green-dark); }
+.unblock-btn:disabled { background: var(--text-muted); cursor: not-allowed; }

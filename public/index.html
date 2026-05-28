@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Банк</title>
+
+    <!--
+        CSS разбит на логические модули:
+        ┌─ variables.css   — токены, сброс, body
+        ├─ header.css      — шапка, навигация, пользователь
+        ├─ auth.css        — вход и регистрация
+        ├─ layout.css      — app-shell (клиент) и admin-shell
+        ├─ cards.css       — банковские карты
+        ├─ components.css  — счета, карточки, бейджи, утилиты
+        ├─ transfers.css   — форма и история переводов
+        ├─ admin.css       — таблица, запросы, блокировка
+        ├─ modal.css       — модальные окна
+        └─ animations.css  — @keyframes, глобальные override
+    -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/transfers.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/animations.css">
+
+    <link rel="icon" type="image/png" href="логотип.png">
+</head>
+<body>
+
+<header class="app-bar">
+    <div class="app-bar-left">
+        <img src="логотип.png"
+             alt="Логотип"
+             class="app-bar-logo"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="app-bar-logo app-bar-logo--fallback" style="display:none;">БНК</div>
+
+        <span class="app-bar-name">ShadeBank</span>
+    </div>
+
+    <nav id="appNav" class="app-nav"></nav>
+
+    <div id="appUserArea" class="app-user-area"></div>
+
+    <!-- Гамбургер: виден только на мобильных (display:none на десктопе через CSS) -->
+    <button id="mobMenuBtn" class="mob-menu-btn" aria-label="Меню" aria-expanded="false">
+        <span class="mob-bar"></span>
+        <span class="mob-bar"></span>
+        <span class="mob-bar"></span>
+    </button>
+</header>
+
+<div id="root"></div>
+
+<script src="AuthPage.js"></script>
+<script src="ClientPage.js"></script>
+<script src="AdminPage.js"></script>
+<script src="AdminUserViewPage.js"></script>
+<script src="router.js"></script>
+
+<script>
+    /* ── Мобильное меню: открыть / закрыть ── */
+    (function () {
+        const btn = document.getElementById('mobMenuBtn');
+        const nav = document.getElementById('appNav');
+        if (!btn || !nav) return;
+
+        function setOpen(open) {
+            nav.classList.toggle('mob-open', open);
+            btn.classList.toggle('mob-open', open);
+            btn.setAttribute('aria-expanded', String(open));
+        }
+
+        /* Кнопка-гамбургер */
+        btn.addEventListener('click', () => setOpen(!nav.classList.contains('mob-open')));
+
+        /* Клик по любой кнопке навигации закрывает меню */
+        nav.addEventListener('click', e => {
+            if (e.target.closest('.app-nav-btn')) setOpen(false);
+        });
+
+        /* Клик вне шапки закрывает меню */
+        document.addEventListener('click', e => {
+            if (!e.target.closest('.app-bar')) setOpen(false);
+        });
+    })();
+</script>
+
+</body>
+</html>

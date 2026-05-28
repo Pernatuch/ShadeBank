@@ -1,0 +1,242 @@
+/* ================================================================
+   header.css — Шапка приложения: логотип, навигация, пользователь
+   ================================================================ */
+
+/* ── Контейнер шапки ─────────────────────────────────────────── */
+.app-bar {
+    background: var(--grad-bar);
+    height: var(--bar-h);
+    min-height: var(--bar-h);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: 0 24px;
+    gap: 14px;
+    flex-shrink: 0;
+    box-shadow: 0 2px 16px rgba(76,29,149,.35);
+    overflow: hidden;
+    border-radius: 0 0 28px 28px;
+    position: relative;
+}
+
+/* Лёгкий блик сверху */
+.app-bar::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.25), transparent);
+    pointer-events: none;
+}
+
+/* ── Левый блок: лого + название ─────────────────────────────── */
+.app-bar-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+/* Разделитель после левого блока */
+.app-bar-left::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 28px;
+    background: rgba(255,255,255,.2);
+    margin-left: 4px;
+}
+
+.app-bar-logo {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255,255,255,.35);
+    flex-shrink: 0;
+    display: block;
+}
+
+.app-bar-logo--fallback {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.15);
+    border: 2px solid rgba(255,255,255,.35);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    color: white;
+    letter-spacing: .5px;
+}
+
+.app-bar-name {
+    color: white;
+    font-size: var(--fs-lg);
+    font-weight: 600;
+    letter-spacing: -.2px;
+    white-space: nowrap;
+    opacity: .95;
+}
+
+/* ── Навигационные кнопки ─────────────────────────────────────── */
+.app-nav {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+
+.app-nav-btn {
+    background: rgba(255,255,255,.10);
+    color: rgba(255,255,255,.80);
+    border: 1px solid rgba(255,255,255,.12);
+    border-top: none;
+    border-radius: 0 0 var(--r-lg) var(--r-lg);
+    padding: 0 20px;
+    height: var(--bar-h);
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    letter-spacing: .1px;
+    cursor: pointer;
+    transition: background .18s, color .18s, border-color .18s;
+    white-space: nowrap;
+    margin: 0;
+    width: auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.app-nav-btn:hover {
+    background: rgba(255,255,255,.18);
+    color: white;
+    border-color: rgba(255,255,255,.22);
+}
+.app-nav-btn.active {
+    background: rgba(255,255,255,.22);
+    color: white;
+    border-color: rgba(255,255,255,.30);
+    font-weight: 600;
+    box-shadow: 0 4px 14px rgba(0,0,0,.20);
+}
+
+/* ── Правая зона: пользователь + выход ──────────────────────── */
+.app-user-area {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.app-user-pill {
+    background: rgba(255,255,255,.14);
+    color: rgba(255,255,255,.90);
+    border: 1px solid rgba(255,255,255,.20);
+    border-radius: var(--r-pill);
+    padding: 7px 16px;
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.app-logout-btn {
+    background: transparent;
+    color: rgba(255,255,255,.85);
+    border: 1px solid rgba(255,255,255,.30);
+    border-radius: var(--r-pill);
+    padding: 7px 16px;
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    cursor: pointer;
+    margin: 0; width: auto;
+    white-space: nowrap;
+    transition: background .18s, border-color .18s, color .18s;
+}
+.app-logout-btn:hover {
+    background: rgba(255,255,255,.18);
+    border-color: rgba(255,255,255,.45);
+    color: white;
+}
+
+/* ================================================================
+   МОБИЛЬНАЯ АДАПТАЦИЯ ХЕДЕРА  (≤ 639 px)
+   ================================================================ */
+
+/* ── Гамбургер-кнопка (по умолчанию скрыта на десктопе) ──────── */
+.mob-menu-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 36px; height: 36px;
+    padding: 7px 6px;
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: var(--r-md);
+    background: rgba(255,255,255,.10);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background .18s;
+    margin: 0;
+}
+.mob-menu-btn:hover { background: rgba(255,255,255,.22); }
+.mob-bar {
+    display: block; height: 2px; background: white;
+    border-radius: 2px;
+    transition: transform .25s ease, opacity .2s ease;
+}
+.mob-menu-btn.mob-open .mob-bar:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+.mob-menu-btn.mob-open .mob-bar:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.mob-menu-btn.mob-open .mob-bar:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+@media (max-width: 639px) {
+    .app-bar {
+        position: relative;
+        padding: 0 14px;
+        gap: 10px;
+        overflow: visible; /* <-- Добавь эту строку */
+    }
+    .app-bar-logo,
+    .app-bar-logo--fallback { width: 36px; height: 36px; }
+    .app-bar-left::after    { display: none; }
+    .app-bar-name           { display: none; }
+
+    /* Навигация: выпадает снизу шапки */
+    .app-nav {
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: var(--grad-bar);
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 4px;
+        padding: 8px 12px 14px;
+        border-radius: 0 0 24px 24px;
+        box-shadow: 0 10px 28px rgba(76,29,149,.45);
+        z-index: 500;
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+        transition: opacity .22s ease, transform .22s ease;
+    }
+    .app-nav.mob-open {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+    .app-nav-btn {
+        width: 100%; height: 44px;
+        border-radius: var(--r-md) !important;
+        border: 1px solid rgba(255,255,255,.15) !important;
+        border-top: 1px solid rgba(255,255,255,.15) !important;
+        justify-content: flex-start;
+        padding: 0 16px;
+        font-size: var(--fs-base);
+    }
+    .app-user-pill  { display: none; }
+    .mob-menu-btn   { display: flex; }
+}
